@@ -7,7 +7,6 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
-#include <dt-bindings/zmk/rgb.h>
 
 / {
     keymap {
@@ -77,12 +76,12 @@
             >;
         };
 
-        // Layer 3: ADJUST (Lower + Raise) - RGB, Bluetooth, Reset
-        //                      v------------------------RGB CONTROL--------------------v
+        // Layer 3: ADJUST (Lower + Raise) - Bluetooth, Reset
+        //
         // ,-----------------------------------------.                    ,-----------------------------------------.
-        // |      | Reset|Debug | RGB  |RGBMOD| HUE+ |                    | HUE- | SAT+ | SAT- |BRGTH+|BRGTH-| Del  |
+        // |      | Reset|Debug |      |      |      |                    |      |      |      |      |      | Del  |
         // |------+------+------+------+------+------|                    |------+------+------+------+------+------|
-        // | RGB  |      |      |      |      |      |                    |      |      |      |      |      |      |
+        // |      |      |      |      |      |      |                    |      |      |      |      |      |      |
         // |------+------+------+------+------+------|                    |------+------+------+------+------+------|
         // | BT0  | BT1  | BT2  | BT3  | BT4  |BT CLR|                    |      |      |      |      |      |      |
         // `------+------+------+------+------+------'                    `------+------+------+------+------+------'
@@ -90,8 +89,8 @@
         //                     `--------------------'                    `--------------------'
         adjust_layer {
             bindings = <
-   &trans            &sys_reset       &bootloader      &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &rgb_ug RGB_HUI    &rgb_ug RGB_HUD  &rgb_ug RGB_SAI  &rgb_ug RGB_SAD  &rgb_ug RGB_BRI  &rgb_ug RGB_BRD  &kp DEL
-   &rgb_ug RGB_TOG   &trans           &trans           &trans           &trans           &trans             &trans           &trans           &trans           &trans           &trans           &trans
+   &trans            &sys_reset       &bootloader      &trans           &trans           &trans             &trans           &trans           &trans           &trans           &trans           &kp DEL
+   &trans            &trans           &trans           &trans           &trans           &trans             &trans           &trans           &trans           &trans           &trans           &trans
    &bt BT_SEL 0      &bt BT_SEL 1     &bt BT_SEL 2     &bt BT_SEL 3     &bt BT_SEL 4     &bt BT_CLR         &trans           &trans           &trans           &trans           &trans           &trans
                                                        &trans           &trans           &trans             &trans           &trans           &trans
             >;
